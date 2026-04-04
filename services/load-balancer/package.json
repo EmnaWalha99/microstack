@@ -1,0 +1,12 @@
+{
+    "name": "load--balancer",
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "dependencies": {
+        "express": "^5.2.1",
+        "http-proxy": "^1.18.1"
+    }
+}
