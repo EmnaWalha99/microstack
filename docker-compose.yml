@@ -52,7 +52,7 @@ services:
       REDIS_PORT: 6379
       RATE_LIMIT_WINDOWS_MS: 60000
       RATE_LIMIT_MAX: 100
-      JWT_SECRET:
+      JWT_SECRET: supersecretkey_change_in_production
       AUTH_SERVICE_URL: http://auth-service:3002 
       JOB_QUEUE_SERVICE_URL: http://job-queue-service:3003
       FILE_UPLOAD_SERVICE_URL: http://file-upload-service:3004
@@ -75,7 +75,7 @@ services:
       REDIS_PORT: 6379
       RATE_LIMIT_WINDOWS_MS: 60000
       RATE_LIMIT_MAX: 100
-      JWT_SECRET:
+      JWT_SECRET: supersecretkey_change_in_production
       AUTH_SERVICE_URL: http://auth-service:3002 
       JOB_QUEUE_SERVICE_URL: http://job-queue-service:3003
       FILE_UPLOAD_SERVICE_URL: http://file-upload-service:3004
