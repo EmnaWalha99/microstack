@@ -1,5 +1,5 @@
 const express = require('express')
-const { jobQueue } = require('./queue') 
+const { jobQueue } = require('../queue') 
 const router = express.Router()
 
 // POST /jobs

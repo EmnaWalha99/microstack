@@ -9,7 +9,7 @@ const connection = new IORedis({
 
 const jobQueue = new Queue('dev-jobs', { connection })
 
-const worker = new Worker('jobQueue', async (job) => {
+const worker = new Worker('dev-jobs', async (job) => {
   console.log(`Processing job ${job.id} type=${job.name}`)
   
   // simulate work with a 2 second delay

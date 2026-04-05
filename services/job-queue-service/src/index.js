@@ -10,7 +10,7 @@ app.use(express.json())
 app.get('/health', (req, res) => res.json({ status: 'ok' }))
 
 // mount job routes
-app.use('/jobs', jobRoutes)
+app.use('/', jobRoutes)
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => console.log(`Job Queue Service running on port ${PORT}`))
