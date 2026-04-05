@@ -5,7 +5,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use('/auth', authRouter)
+app.use('/', authRouter)
 
 app.get('/health', (req, res) => {
   res.json({ status: 'Auth service is running' })
