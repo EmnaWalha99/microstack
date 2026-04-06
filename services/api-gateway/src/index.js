@@ -17,7 +17,7 @@ app.get('/health',(req,res)=>res.json({status:'ok'}))
 redis.on('connect',()=>console.log("Redis connected"));
 redis.on('error',(err)=>console.log("Redis error",err.message));
 app.use(rateLimiter(redis))
-const authProxy = createProxyMiddleware({ target:AUTH_URL, changeOrigin: true })
+const authProxy = createProxyMiddleware({ target:AUTH_URL, changeOrigin: true }) // changeOring true : it rewrites the host header so the target server sees requests as if they came directly
 const jobProxy  = createProxyMiddleware({ target:JOB_URL, changeOrigin: true })
 const fileProxy = createProxyMiddleware({ target: FILE_URL, changeOrigin: true })
 
