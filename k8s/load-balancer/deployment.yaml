@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load-balancer
+  namespace: microstack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: load-balancer
+  template:
+    metadata:
+      labels:
+        app: load-balancer
+    spec:
+      containers:
+        - name: load-balancer
+          image: emnawalha99/micrstack-load-balancer:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: microstack-config

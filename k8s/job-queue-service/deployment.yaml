@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-queue-service
+  namespace: microstack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: job-queue-service
+  template:
+    metadata:
+      labels:
+        app: job-queue-service
+    spec:
+      containers:
+        - name: job-queue-service
+          image: emnawalha99/microstack-job-queue-service:latest
+          ports:
+            - containerPort: 3003
+          envFrom:
+            - configMapRef:
+                name: microstack-config

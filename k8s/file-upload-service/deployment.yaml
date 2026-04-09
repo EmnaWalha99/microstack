@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-upload-service
+  namespace: microstack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: file-upload-service
+  template:
+    metadata:
+      labels:
+        app: file-upload-service
+    spec:
+      containers:
+        - name: file-upload-service
+          image: emnawalha99/microstack-file-upload-service:latest
+          ports:
+            - containerPort: 3004
+          envFrom:
+            - configMapRef:
+                name: microstack-config
+          volumeMounts:
+            - name: uploads-storage
+              mountPath: /app/uploads
+      volumes:
+        - name: uploads-storage
+          persistentVolumeClaim:
+            claimName: uploads-pvc
